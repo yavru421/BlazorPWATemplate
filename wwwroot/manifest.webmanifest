@@ -1,0 +1,26 @@
+{
+  "name": "BlazorPwaTemplate",
+  "short_name": "BlazorPwaTemplate",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#11161d",
+  "theme_color": "#11161d",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "description": "Device Capability Explorer & UI/UX Pattern Library template."
+}
+

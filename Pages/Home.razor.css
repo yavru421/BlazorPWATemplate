@@ -1,0 +1,151 @@
+.dashboard-container {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section {
+    padding: 40px 0;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, var(--text) 20%, var(--signal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 800px;
+}
+
+.section-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 40px 0 20px 0;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.api-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-sizing: border-box;
+}
+
+.api-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(122, 209, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.card-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(122, 209, 255, 0.05) 0%, transparent 60%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+.api-card:hover .card-glow {
+    opacity: 1;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text);
+    border: 1px solid var(--line);
+    transition: all 0.3s ease;
+}
+
+.api-card:hover .card-icon {
+    background: rgba(122, 209, 255, 0.1);
+    color: var(--signal);
+    border-color: rgba(122, 209, 255, 0.3);
+    box-shadow: 0 0 15px rgba(122, 209, 255, 0.2);
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--text);
+    z-index: 1;
+}
+
+.card-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1;
+    z-index: 1;
+}
+
+/* Custom glows */
+.camera-glow { background: radial-gradient(circle, rgba(122, 209, 255, 0.08) 0%, transparent 60%); }
+.geo-glow { background: radial-gradient(circle, rgba(255, 184, 43, 0.06) 0%, transparent 60%); }
+.motion-glow { background: radial-gradient(circle, rgba(255, 131, 112, 0.06) 0%, transparent 60%); }
+.haptics-glow { background: radial-gradient(circle, rgba(212, 136, 255, 0.06) 0%, transparent 60%); }
+.share-glow { background: radial-gradient(circle, rgba(130, 255, 177, 0.06) 0%, transparent 60%); }
+.notify-glow { background: radial-gradient(circle, rgba(255, 180, 237, 0.06) 0%, transparent 60%); }
+.battery-glow { background: radial-gradient(circle, rgba(46, 213, 115, 0.06) 0%, transparent 60%); }
+.media-glow { background: radial-gradient(circle, rgba(255, 235, 59, 0.05) 0%, transparent 60%); }
+.screen-glow { background: radial-gradient(circle, rgba(0, 188, 212, 0.06) 0%, transparent 60%); }
+.bluetooth-glow { background: radial-gradient(circle, rgba(63, 81, 181, 0.07) 0%, transparent 60%); }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 1.05rem; }
+    .card-grid { grid-template-columns: 1fr; }
+}
