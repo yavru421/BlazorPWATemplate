@@ -1,1142 +1,438 @@
 /* ============================================================
-   Studio.razor.css — Allen & Heath SQ-6 Vibe Beatmaker Console
+   Studio.razor.css — Line6 inspired hardware beatmaker studio
    ============================================================ */
-
-:root {
-    --bg-dark: #07090e;
-    --console-plate: #151a24;
-    --console-border: rgba(255, 255, 255, 0.08);
-    --neon-blue: #00d2ff;
-    --neon-purple: #bd00ff;
-    --neon-green: #00ff87;
-    --neon-orange: #ff5e36;
-    --neon-yellow: #ffc837;
-    --lcd-bg: #091a18;
-    --lcd-glow: #00ffb7;
-    --glass-glow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
-}
 
 .studio-page {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 1.5rem 1rem 4rem;
-    max-width: 1100px;
+    gap: 2rem;
+    padding: 2rem 1rem 5rem;
+    max-width: 1000px;
     margin: 0 auto;
-    background: var(--bg-dark);
+    background: #090a0f;
     min-height: 100vh;
-    font-family: 'Outfit', 'Inter', -apple-system, sans-serif;
-    color: #e5e7eb;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    color: #e2e8f0;
 }
 
-/* ── Header & Global Control Strip ───────────────────────── */
-.studio-header {
+/* ── Hardware Amp Head ───────────────────────── */
+.amp-head {
     display: flex;
+    background: linear-gradient(180deg, #22252e 0%, #111317 100%);
+    border: 3px solid #333946;
+    border-radius: 12px;
+    padding: 2rem;
+    gap: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), inset 0 2px 4px rgba(255, 255, 255, 0.08);
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    background: #111520;
-    border: 1px solid var(--console-border);
-    border-radius: 16px;
-    padding: 1rem 1.5rem;
-    box-shadow: var(--glass-glow);
 }
 
-.header-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.header-brand h1 {
-    margin: 0;
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--neon-blue) 0%, #00ffb7 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -0.8px;
-}
-
-.sub-label {
-    font-size: 0.7rem;
-    color: #9ca3af;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: block;
-}
-
-.studio-global-controls {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-/* Global setting pills */
-.global-setting-pill {
-    background: #0d111a;
-    border: 1px solid var(--console-border);
-    border-radius: 10px;
-    padding: 0.35rem 0.65rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.pill-label {
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: #6b7280;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.bpm-input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--neon-blue);
-    font-family: monospace;
-    font-weight: 700;
-    font-size: 0.9rem;
-    width: 50px;
-    text-align: center;
-}
-
-.pill-select {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--neon-green);
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-}
-
-/* Controls */
-.btn-studio-control {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.55rem 1.25rem;
-    border-radius: 10px;
-    border: none;
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-play {
-    border: 1px solid rgba(0, 255, 135, 0.4);
-    background: linear-gradient(135deg, rgba(0, 255, 135, 0.2), rgba(0, 255, 135, 0.05));
-    color: var(--neon-green);
-    box-shadow: 0 0 15px rgba(0, 255, 135, 0.1);
-}
-
-.btn-play:hover {
-    background: linear-gradient(135deg, rgba(0, 255, 135, 0.35), rgba(0, 255, 135, 0.15));
-    box-shadow: 0 0 20px rgba(0, 255, 135, 0.25);
-    transform: translateY(-1px);
-}
-
-.btn-stop {
-    border: 1px solid rgba(255, 94, 54, 0.4);
-    background: linear-gradient(135deg, rgba(255, 94, 54, 0.2), rgba(255, 94, 54, 0.05));
-    color: var(--neon-orange);
-    box-shadow: 0 0 15px rgba(255, 94, 54, 0.1);
-}
-
-.btn-stop:hover {
-    background: linear-gradient(135deg, rgba(255, 94, 54, 0.35), rgba(255, 94, 54, 0.15));
-    box-shadow: 0 0 20px rgba(255, 94, 54, 0.25);
-    transform: translateY(-1px);
-}
-
-.btn-studio-secondary {
-    padding: 0.55rem 1rem;
-    border-radius: 10px;
-    border: 1px solid var(--console-border);
-    background: rgba(255, 255, 255, 0.03);
-    color: #9ca3af;
-    font-weight: 700;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-studio-secondary:hover {
-    border-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.danger-text {
-    color: var(--neon-orange);
-    border-color: rgba(255, 94, 54, 0.3);
-}
-
-.danger-text:hover {
-    background: rgba(255, 94, 54, 0.1);
-    border-color: var(--neon-orange);
-}
-
-/* ── Studio Cards & Mixer Shell ──────────────────────────── */
-.studio-card {
-    background: var(--console-plate);
-    border: 1px solid var(--console-border);
-    border-radius: 20px;
-    padding: 1.5rem;
-    backdrop-filter: blur(10px);
-    box-shadow: var(--glass-glow);
-    position: relative;
-}
-
-/* ── Builder Card (Modal Setup Flow) ─────────────────────── */
-.builder-card {
-    max-width: 700px;
-    margin: 4rem auto;
-    text-align: center;
-    padding: 3rem 2rem;
-    border: 2px solid rgba(0, 210, 255, 0.2);
-    background: linear-gradient(135deg, #111520 0%, #151a24 100%);
-}
-
-.builder-logo {
-    margin-bottom: 1.25rem;
-    animation: spinSlow 12s infinite linear;
-}
-
-@keyframes spinSlow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.builder-card h2 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin: 0;
-    color: #fff;
-}
-
-.builder-subtitle {
-    font-size: 0.9rem;
-    color: #9ca3af;
-    margin-top: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.setup-sections {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    text-align: left;
-}
-
-.setup-section h3 {
-    font-size: 0.95rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--neon-blue);
-    margin-top: 0;
-    margin-bottom: 1rem;
-    border-left: 3px solid var(--neon-blue);
-    padding-left: 0.5rem;
-}
-
-.templates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-}
-
-.template-card {
-    background: rgba(0,0,0,0.2);
-    border: 1px solid var(--console-border);
-    border-radius: 14px;
-    padding: 1.25rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-}
-
-.template-card:hover {
-    border-color: rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.03);
-    transform: translateY(-2px);
-}
-
-.template-card.active {
-    border-color: var(--neon-blue);
-    background: rgba(0, 210, 255, 0.08);
-    box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.15);
-}
-
-.template-icon {
-    font-size: 1.5rem;
-    margin-bottom: 0.25rem;
-}
-
-.template-name {
-    font-weight: 800;
-    font-size: 0.95rem;
-    color: #fff;
-}
-
-.template-desc {
-    font-size: 0.75rem;
-    color: #6b7280;
-    line-height: 1.3;
-}
-
-.params-row {
+.amp-section {
     display: flex;
     gap: 1.5rem;
-    flex-wrap: wrap;
-    background: rgba(0,0,0,0.15);
-    padding: 1.25rem;
-    border-radius: 12px;
-    border: 1px solid var(--console-border);
-}
-
-.param-input-group {
-    flex: 1;
-    min-width: 140px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
-}
-
-.control-label {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: #9ca3af;
-}
-
-.bpm-slider-wrap {
-    display: flex;
     align-items: center;
-    gap: 0.75rem;
 }
 
-.param-val {
-    font-family: monospace;
-    font-weight: 700;
-    color: #fff;
-    font-size: 0.85rem;
-    min-width: 60px;
-}
-
-.glass-select {
-    background: #090c12;
-    border: 1px solid var(--console-border);
-    border-radius: 8px;
-    color: #fff;
-    padding: 0.45rem;
-    font-size: 0.85rem;
-    outline: none;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-.glass-select:focus {
-    border-color: var(--neon-blue);
-}
-
-.builder-footer {
-    margin-top: 2.5rem;
-    display: flex;
-    justify-content: center;
-}
-
-.btn-large {
-    padding: 0.85rem 2.5rem;
-    font-size: 1rem;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--neon-blue), #00ff87);
-    color: #07090e;
-    box-shadow: 0 5px 25px rgba(0, 210, 255, 0.3);
-}
-.btn-large:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 210, 255, 0.5);
-}
-
-/* ── Chords Sequencer Backing Strip ──────────────────────── */
-.chords-header {
-    margin-bottom: 1rem;
-}
-
-.chords-header h3 {
-    margin: 0;
-    font-size: 0.9rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    color: #9ca3af;
-}
-
-.chords-subtitle {
-    font-size: 0.7rem;
-    color: #6b7280;
-}
-
-.chords-row {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 0.6rem;
-}
-
-.chord-cell {
-    background: rgba(0,0,0,0.2);
-    border: 1px solid var(--console-border);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: all 0.2s ease;
-}
-
-.chord-cell.active {
-    border-color: var(--neon-purple);
-    background: rgba(189,0,255,0.08);
-    box-shadow: 0 0 12px rgba(189,0,255,0.2);
-}
-
-.chord-btn {
-    background: transparent;
-    border: none;
-    padding: 0.75rem 0.5rem;
-    color: #fff;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.15rem;
-    outline: none;
-}
-
-.chord-label {
-    font-size: 0.6rem;
-    font-weight: 800;
-    color: #6b7280;
-}
-
-.chord-val {
-    font-size: 0.85rem;
-    font-weight: 800;
-}
-
-.chord-octaves {
-    display: flex;
-    border-top: 1px solid var(--console-border);
-    background: rgba(0,0,0,0.1);
-}
-
-.btn-oct {
+/* Left panel: Dial + LCD */
+.left-control-panel {
     flex: 1;
-    background: transparent;
-    border: none;
-    color: #6b7280;
-    font-size: 0.6rem;
-    padding: 0.15rem 0;
-    cursor: pointer;
-    outline: none;
-}
-.btn-oct:hover {
-    color: #fff;
-    background: rgba(255,255,255,0.05);
-}
-.btn-oct:first-child {
-    border-right: 1px solid var(--console-border);
-}
-
-/* ── 5-Channel Tactile Mixer Console ─────────────────────── */
-.mixer-console-desk {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1rem;
-    background: #0f131b;
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 18px;
-    padding: 1rem;
-    box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
-}
-
-.channel-strip {
-    background: #181f2a;
-    border: 1px solid rgba(255,255,255,0.03);
-    border-radius: 12px;
-    padding: 0.85rem;
+    min-width: 320px;
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: all 0.2s ease;
+    gap: 1.5rem;
+    align-items: center;
 }
 
-.channel-strip.armed {
-    border: 2px solid var(--track-color);
-    box-shadow: 0 0 25px var(--track-color), inset 0 0 10px var(--track-color);
-    background: #1c2432;
+.vibe-dial {
+    width: 65px !important;
+    height: 65px !important;
+    background: radial-gradient(circle, #3d4554 0%, #15181e 100%) !important;
+    border: 3px solid #000 !important;
 }
 
-/* LCD Header screen */
-.channel-lcd {
-    background: var(--lcd-bg);
-    border: 2px solid #233130;
+/* LCD Screen design */
+.lcd-screen {
+    flex: 1;
+    height: 80px;
+    background: linear-gradient(135deg, #0e2b17 0%, #061c0d 100%);
+    border: 2px solid #144021;
     border-radius: 6px;
-    padding: 0.5rem;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.8), 0 0 15px rgba(20, 64, 33, 0.3);
+    padding: 0.6rem 0.8rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: #38ef7d;
+    text-shadow: 0 0 5px rgba(56, 239, 125, 0.7);
     display: flex;
     flex-direction: column;
-    text-align: center;
-    box-shadow: inset 0 0 8px rgba(0,0,0,0.8);
+    justify-content: space-between;
+    overflow: hidden;
 }
 
-.lcd-number {
-    font-size: 0.55rem;
-    color: #79a39c; /* Brighter retro calculator green glow */
-    font-family: monospace;
-    font-weight: 700;
+.lcd-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.lcd-index {
+    color: #00ff87;
+    background: rgba(0, 255, 135, 0.1);
+    padding: 0 0.3rem;
+    border-radius: 3px;
 }
 
 .lcd-name {
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: var(--lcd-glow);
-    text-shadow: 0 0 6px var(--lcd-glow);
-    font-family: monospace;
-    letter-spacing: 0.5px;
+    flex: 1;
+    margin-left: 0.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.lcd-preset {
-    font-size: 0.6rem;
-    color: #6da298;
-    font-family: monospace;
-    margin-top: 0.15rem;
-}
-
-/* Arm / Select button */
-.btn-channel-arm {
-    background: #0f131b;
-    border: 1px solid rgba(255,255,255,0.15);
-    color: #a3a9b5; /* Brighter legible button text */
-    padding: 0.45rem 0;
-    border-radius: 6px;
+.lcd-meta {
+    display: flex;
+    justify-content: space-between;
     font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.2s;
-    outline: none;
-}
-.btn-channel-arm:hover {
-    color: #fff;
-    border-color: rgba(255,255,255,0.25);
-}
-.btn-channel-arm.active {
-    background: var(--track-color);
-    color: #07090e;
-    border-color: var(--track-color);
-    box-shadow: 0 0 10px var(--track-color);
+    color: #82f9a1;
 }
 
-/* Rotary-like horizontal sliders */
-.channel-knobs {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    background: rgba(0,0,0,0.25);
-    padding: 0.65rem;
-    border-radius: 8px;
+.lcd-body {
+    font-size: 0.65rem;
+    line-height: 1.2;
+    color: #a8ffb2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.knob-row {
+/* Center panel: 5 knobs */
+.amp-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Hardware Knobs */
+.knob-container {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    align-items: center;
+    gap: 0.4rem;
+    width: 60px;
+    user-select: none;
+}
+
+.knob-dial {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #2a2e37 0%, #0d0f13 100%);
+    border: 2px solid #000;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,255,255,0.05);
+    position: relative;
+    cursor: grab;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.05s ease-out;
+}
+
+.knob-dial:active {
+    cursor: grabbing;
+}
+
+.knob-indicator {
+    width: 3px;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 1px;
+    position: absolute;
+    top: 4px;
+    box-shadow: 0 0 3px #fff;
 }
 
 .knob-label {
     font-size: 0.55rem;
     font-weight: 800;
-    color: #6b7280;
+    color: #94a3b8;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
-    letter-spacing: 0.3px;
-}
-
-.strip-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 3px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 99px;
-    outline: none;
-    cursor: pointer;
-}
-.strip-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #e5e7eb;
-    border: 1.5px solid #111;
-    box-shadow: 0 0 4px rgba(0,0,0,0.5);
-    cursor: pointer;
-}
-.strip-slider::-webkit-slider-thumb:hover {
-    background: var(--track-color);
-    box-shadow: 0 0 6px var(--track-color);
-}
-
-/* Volume Fader (Hardware style vertical slider) */
-.channel-fader-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(0,0,0,0.2);
-    border: 1px solid rgba(255,255,255,0.03);
-    border-radius: 10px;
-    padding: 0.6rem;
-    height: 190px;
-}
-
-.fader-db-scale {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    font-family: monospace;
-    font-size: 0.55rem;
-    color: #9ca3af; /* High contrast legible markers */
-    font-weight: 700;
-    text-align: right;
-    width: 22px;
-}
-
-.fader-track-wrapper {
-    height: 100%;
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 30px;
-    min-height: 150px;
-}
-
-/* Vertical slider styling using absolute rotate centring to preserve flex size */
-.strip-fader {
-    -webkit-appearance: none;
-    appearance: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-90deg);
-    width: 150px;
-    height: 5px;
-    background: #090d14;
-    border-radius: 2px;
-    outline: none;
-    cursor: pointer;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    margin: 0;
-}
-
-.strip-fader::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 22px;
-    height: 12px;
-    background: linear-gradient(to right, #9ca3af, #374151);
-    border: 1px solid #000;
-    border-radius: 2px;
-    box-shadow: 0 0 6px rgba(0,0,0,0.6);
-    cursor: ns-resize;
-}
-
-.strip-fader::-webkit-slider-thumb:hover {
-    background: var(--track-color);
-}
-
-/* Tap Pads */
-.channel-pad-wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-.btn-tap-pad {
-    width: 100%;
-    height: 52px;
-    background: #111520;
-    border: 3.5px solid var(--pad-color);
-    border-radius: 8px;
-    cursor: pointer;
-    outline: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.4), inset 0 0 10px rgba(0,0,0,0.5);
-    transition: all 0.06s ease;
-}
-
-.btn-tap-pad:active {
-    background: var(--pad-color);
-    box-shadow: 0 0 18px var(--pad-color);
-    transform: scale(0.96);
-}
-
-.btn-tap-pad:active .pad-txt {
-    color: #07090e;
-}
-
-.pad-txt {
-    font-weight: 900;
-    font-size: 0.85rem;
-    color: #fff;
-    letter-spacing: 0.5px;
-    user-select: none;
-}
-
-.beat-flash {
-    animation: flashBorder 0.15s ease-out;
-}
-
-@keyframes flashBorder {
-    0% { border-color: #fff; box-shadow: 0 0 10px #fff; }
-    100% { border-color: var(--pad-color); }
-}
-
-/* ── Ribbon Controller (Pitch Slider) ────────────────────── */
-.ribbon-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    border: 1px solid rgba(0, 210, 255, 0.15);
-}
-
-.ribbon-card.hidden {
-    display: none !important;
-}
-
-.ribbon-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.ribbon-header h3 {
-    margin: 0;
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    color: #9ca3af;
-}
-
-.ribbon-note-display {
-    font-size: 0.75rem;
-    color: #9ca3af;
-}
-
-.ribbon-strip-wrapper {
-    background: #090c12;
-    border: 2px solid var(--console-border);
-    border-radius: 12px;
-    padding: 0.35rem;
-    position: relative;
-    box-shadow: inset 0 0 15px rgba(0,0,0,0.9);
-}
-
-.ribbon-strip {
-    height: 52px;
-    display: flex;
-    align-items: stretch;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: crosshair;
-    user-select: none;
-    position: relative;
-}
-
-.ribbon-node {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-right: 1px dashed rgba(255, 255, 255, 0.05);
-    background: rgba(255,255,255,0.01);
-    transition: background-color 0.1s;
-    position: relative;
-}
-
-.ribbon-node:last-child {
-    border-right: none;
-}
-
-.ribbon-node.active-node {
-    background: rgba(0, 210, 255, 0.15);
-    border-right-color: var(--neon-blue);
-    box-shadow: inset 0 0 10px rgba(0, 210, 255, 0.2);
-}
-
-.ribbon-node.active-node::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--neon-blue);
-    box-shadow: 0 0 8px var(--neon-blue);
-}
-
-.node-label {
-    font-size: 0.65rem;
-    font-weight: 800;
-    color: #4b5563;
-    font-family: monospace;
-    user-select: none;
-}
-
-.active-node .node-label {
-    color: #fff;
-    text-shadow: 0 0 6px var(--neon-blue);
-}
-
-.ribbon-instruction {
-    margin: 0;
-    font-size: 0.7rem;
-    color: #6b7280;
     text-align: center;
 }
 
-/* ── Sequencer Dashboard Grid ────────────────────────────── */
+.knob-value {
+    font-size: 0.55rem;
+    font-weight: bold;
+    color: #38ef7d;
+    text-shadow: 0 0 3px rgba(56, 239, 125, 0.4);
+}
+
+/* Right panel: Presets & Transport */
+.amp-system {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.preset-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.preset-label {
+    font-size: 0.55rem;
+    font-weight: 800;
+    color: #94a3b8;
+    letter-spacing: 0.8px;
+}
+
+.preset-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem;
+}
+
+.btn-preset {
+    width: 32px;
+    height: 28px;
+    background: #0b0d10;
+    border: 1.5px solid #2d3440;
+    border-radius: 4px;
+    color: #64748b;
+    font-weight: 800;
+    font-size: 0.75rem;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
+    transition: all 0.15s;
+}
+
+.btn-preset.active {
+    background: #ff3333;
+    color: #fff;
+    border-color: #ff8888;
+    box-shadow: 0 0 12px rgba(255, 51, 51, 0.6), inset 0 2px 4px rgba(255,255,255,0.3);
+}
+
+.transport-group {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+/* Tap Tempo */
+.btn-tap-tempo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #0c0e12;
+    border: 2px solid #2d3440;
+    color: #64748b;
+    font-weight: 800;
+    font-size: 0.6rem;
+    line-height: 1.1;
+    cursor: pointer;
+    box-shadow: inset 0 4px 6px rgba(0,0,0,0.6);
+    transition: all 0.1s;
+}
+
+.btn-tap-tempo.flash {
+    background: #ff3333;
+    color: #fff;
+    border-color: #ff8888;
+    box-shadow: 0 0 15px rgba(255, 51, 51, 0.8);
+}
+
+.btn-tap-tempo:active {
+    transform: scale(0.95);
+}
+
+/* Action Buttons (Play/Stop) */
+.btn-action {
+    width: 55px;
+    height: 50px;
+    border-radius: 6px;
+    border: 2px solid #2d3440;
+    font-weight: 800;
+    font-size: 0.75rem;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.05), 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.15s;
+}
+
+.play-btn {
+    background: #102e1a;
+    color: #38ef7d;
+    border-color: #194d2c;
+}
+.play-btn:hover {
+    background: #194d2c;
+    box-shadow: 0 0 12px rgba(56, 239, 125, 0.4);
+}
+
+.stop-btn {
+    background: #3c1212;
+    color: #ff4a4a;
+    border-color: #611e1e;
+}
+.stop-btn:hover {
+    background: #611e1e;
+    box-shadow: 0 0 12px rgba(255, 74, 74, 0.4);
+}
+
+
+/* ── 5x16 LED Matrix Visualizer ───────────────── */
+.sequencer-card {
+    background: linear-gradient(180deg, #12151d 0%, #0d0f14 100%);
+    border: 2px solid #1f2430;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.7);
+}
+
 .sequencer-header {
-    margin-bottom: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #1f2430;
+    padding-bottom: 0.8rem;
 }
 
 .sequencer-header h3 {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
     font-weight: 800;
-    letter-spacing: 0.5px;
-    color: #9ca3af;
+    letter-spacing: 1px;
 }
 
-.sequencer-subtitle {
-    font-size: 0.7rem;
-    color: #6b7280;
-}
-
-.playhead-track {
-    display: flex;
-    margin-bottom: 0.5rem;
-}
-
-.track-label-spacer {
-    width: 100px;
-    flex-shrink: 0;
-}
-
-.steps-row {
-    display: flex;
-    gap: 0.4rem;
-    flex-grow: 1;
-}
-
-.playhead-dot {
-    flex: 1;
-    min-width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    background: rgba(255,255,255,0.015);
-    border: 1px solid rgba(255,255,255,0.03);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.08s;
-}
-
-.step-tick-num {
-    font-size: 0.55rem;
+.playhead-label {
     font-family: monospace;
-    font-weight: 700;
-    color: #4b5563;
+    font-size: 0.8rem;
+    color: #38ef7d;
 }
 
-.playhead-dot.active {
-    background: rgba(0, 210, 255, 0.15);
-    border-color: var(--neon-blue);
-    box-shadow: 0 0 8px rgba(0, 210, 255, 0.3);
-}
-
-.playhead-dot.active .step-tick-num {
-    color: var(--neon-blue);
-}
-
-.grid-matrix {
+.monitor-grid {
     display: flex;
     flex-direction: column;
+    gap: 0.8rem;
+}
+
+.monitor-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.track-info {
+    width: 90px;
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
 }
 
-.matrix-row {
-    display: flex;
-    align-items: center;
+.track-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px currentColor;
 }
 
-.track-label {
-    width: 100px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-weight: 700;
-    font-size: 0.75rem;
-    color: #9ca3af;
-}
-
-.track-icon {
-    font-size: 0.95rem;
-}
-
-.step-btn {
-    flex: 1;
-    min-width: 18px;
-    height: 38px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    cursor: pointer;
-    transition: all 0.1s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.step-btn:hover {
-    background: rgba(255,255,255,0.05);
-    border-color: rgba(255,255,255,0.1);
-}
-
-.step-btn:nth-child(4n+1) {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.06);
-}
-
-/* Sequencer states */
-.step-btn.active.pinned {
-    background: var(--track-color);
-    border-color: var(--track-color);
-    box-shadow: 0 0 10px var(--track-color);
-}
-
-.step-btn.active.ghosted {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1.5px dashed var(--track-color);
-    box-shadow: inset 0 0 6px var(--track-color);
-}
-
-.step-btn.playhead::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: inset 0 0 4px #fff;
-    pointer-events: none;
-}
-
-.melody-label {
-    font-size: 0.5rem;
-    font-weight: 800;
-    color: #07090e;
-    background: rgba(255,255,255,0.85);
-    padding: 0.05rem 0.15rem;
-    border-radius: 2px;
-}
-
-/* ── Tabbed View Styling & HUD readouts ─────────────────── */
-
-.studio-tabs-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    background: #111520;
-    border: 1px solid var(--console-border);
-    border-radius: 12px;
-    padding: 0.5rem;
-    box-shadow: var(--glass-glow);
-}
-
-.tab-nav-btn {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #9ca3af;
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: inherit;
-}
-
-.tab-nav-btn:hover {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.04);
-}
-
-.tab-nav-btn.active {
-    background: var(--console-plate);
-    color: var(--neon-blue);
-    box-shadow: 0 0 12px rgba(0, 210, 255, 0.15), inset 0 0 4px rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(0, 210, 255, 0.2);
-}
-
-/* Playback monitor HUD readouts */
-.playback-monitor-hud {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: #091a18;
-    border: 1px solid #1a3532;
-    border-radius: 10px;
-    padding: 0.35rem 0.75rem;
-    font-family: monospace;
+.track-name {
     font-size: 0.75rem;
     font-weight: bold;
-    box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-    margin-right: 0.5rem;
+    color: #cbd5e1;
 }
 
-.hud-indicator {
-    color: #4b5563;
-    transition: color 0.1s ease;
-}
-
-.hud-indicator.glowing-active {
-    color: var(--neon-green);
-    text-shadow: 0 0 6px var(--neon-green);
-    animation: flash-led 1s infinite alternate;
-}
-
-@keyframes flash-led {
-    from { opacity: 0.4; }
-    to { opacity: 1; }
-}
-
-.hud-vibe {
-    color: #79a39c;
-}
-
-.hud-tracks {
-    color: var(--lcd-glow);
-    text-shadow: 0 0 4px var(--lcd-glow);
-}
-
-/* Sequencer overlay legend styling */
-.sequencer-legend {
+.led-steps {
+    flex: 1;
     display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    background: rgba(0,0,0,0.25);
-    padding: 0.6rem 1rem;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    border: 1px solid rgba(255,255,255,0.03);
-    font-size: 0.75rem;
+    gap: 0.35rem;
 }
 
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.legend-box {
-    width: 14px;
-    height: 14px;
+.led-cell {
+    flex: 1;
+    height: 18px;
+    background: #0f1116;
+    border: 1px solid #1a1e28;
     border-radius: 3px;
-    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.8);
 }
 
-.legend-pinned {
-    background: var(--neon-blue);
-    box-shadow: 0 0 6px var(--neon-blue);
+/* Vertical grid line markers for beats (1, 5, 9, 13) */
+.led-steps > :nth-child(4n+1) {
+    border-color: #2e374d;
 }
 
-.legend-ghosted {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1.5px dashed var(--neon-blue);
+.led-glow {
+    position: absolute;
+    inset: 2px;
+    border-radius: 2px;
+    background: transparent;
+    transition: background 0.05s ease-out, box-shadow 0.05s ease-out;
 }
 
-.legend-active {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid #fff;
-    box-shadow: inset 0 0 4px #fff;
+/* Active LED state */
+.led-cell.active .led-glow {
+    background: var(--track-color);
+    box-shadow: 0 0 10px 1px var(--track-color);
+    opacity: 0.75;
 }
 
-/* Ribbon Track selector picker in tab 2 */
-.ribbon-track-picker {
-    display: flex;
-    gap: 0.5rem;
-    margin: 0.5rem 0 1rem;
+/* Playhead overlay */
+.led-cell.playhead {
+    border-color: #ffffff;
+    box-shadow: 0 0 6px #ffffff;
 }
 
-.picker-btn {
-    background: #0f131b;
-    border: 1px solid rgba(255,255,255,0.1);
-    color: #9ca3af;
-    padding: 0.35rem 0.85rem;
-    border-radius: 6px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.2s;
+.led-cell.playhead.active .led-glow {
+    opacity: 1;
+    box-shadow: 0 0 15px 3px var(--track-color), 0 0 6px 1px #fff;
 }
 
-.picker-btn.active {
-    background: var(--neon-blue);
-    color: #07090e;
-    box-shadow: 0 0 10px var(--neon-blue);
-    border-color: var(--neon-blue);
+.led-cell.playhead:not(.active) .led-glow {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* Contrast enhancement overrides */
-.text-high-contrast {
-    color: #e5e7eb !important;
-}
-
-/* ── Responsive & Details ────────────────────────────────── */
-@media (max-width: 900px) {
-    .mixer-console-desk { grid-template-columns: 1fr; gap: 0.75rem; }
-    .chords-row { grid-template-columns: repeat(4, 1fr); }
-    .studio-header { flex-direction: column; align-items: stretch; }
-    .playback-monitor-hud { margin-right: 0; justify-content: center; }
-}
-
-@media (max-width: 600px) {
-    .chords-row { grid-template-columns: repeat(2, 1fr); }
-    .step-tick-num { display: none; }
-    .track-label { width: 40px; }
-    .track-name { display: none; }
-    .track-label-spacer { width: 40px; }
-    .studio-tabs-nav { flex-direction: column; align-items: stretch; gap: 0.35rem; }
+/* Responsive UI adjustments */
+@media (max-width: 768px) {
+    .amp-head {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    .left-control-panel {
+        flex-direction: column;
+        min-width: unset;
+        border-bottom: 1.5px solid #2d3440;
+        padding-bottom: 1.5rem;
+    }
+    .lcd-screen {
+        width: 100%;
+    }
+    .amp-controls {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        border-bottom: 1.5px solid #2d3440;
+        padding-bottom: 1.5rem;
+    }
+    .amp-system {
+        justify-content: space-between;
+    }
+    .track-info {
+        width: 60px;
+    }
+    .track-name {
+        font-size: 0.65rem;
+    }
+    .led-cell {
+        height: 14px;
+    }
 }

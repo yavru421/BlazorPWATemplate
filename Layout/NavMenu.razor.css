@@ -153,7 +153,8 @@
     }
 
     .app-sidebar.collapsed {
-        left: -78px; /* Hide completely when collapsed on mobile */
+        left: -300px; /* Hide completely when collapsed on mobile */
+        width: 280px; 
     }
 
     /* Triggered by removing collapsed class (opening it) */
