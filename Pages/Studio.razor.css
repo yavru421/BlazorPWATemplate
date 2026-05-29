@@ -37,10 +37,11 @@
 
 /* Left panel: Dial + LCD */
 .left-control-panel {
-    flex: 1;
-    min-width: 320px;
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 420px;
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     align-items: center;
 }
 
@@ -67,6 +68,7 @@
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
+    width: 100%;
 }
 
 .lcd-header {

@@ -23,9 +23,9 @@ html, body {
         radial-gradient(circle at top right, rgba(255, 184, 43, 0.1), transparent 22%),
         linear-gradient(180deg, var(--bg-top), var(--bg));
     font-family: "Aptos", "Trebuchet MS", "Segoe UI", sans-serif;
-    position: fixed;
-    overflow: hidden;
     width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
     /* Prevents pull-to-refresh behavior or canvas shifting on touch swipe */
     overscroll-behavior: none; 
     overscroll-behavior-y: none;
