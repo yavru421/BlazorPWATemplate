@@ -137,6 +137,7 @@ function initAudioContext() {
     if (audioCtx) return;
     const AudioContextClass = window.AudioContext || window.webkitAudioContext;
     audioCtx = new AudioContextClass();
+    window.audioCtx = audioCtx; // Expose globally for Safari synchronous resume
 
     // iOS Foreground/Background Audio Patch
     if (!window._silentAudioEl) {
